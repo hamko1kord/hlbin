@@ -1,0 +1,248 @@
+/* Reset default styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Amiri', sans-serif; /* Beautiful Arabic font */
+    background-color: #f9f3f3;
+    color: #333;
+    direction: rtl; /* Arabic text direction */
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+/* Main page layout */
+.main-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f9f3f3;
+}
+
+/* Search container */
+.search-container {
+    text-align: center;
+    background: #fff;
+    padding: 40px 60px;
+    border-radius: 25px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    transition: all 0.3s ease;
+}
+
+.search-container:hover {
+    box-shadow: 0 6px 40px rgba(0, 0, 0, 0.15);
+}
+
+.heading {
+    font-size: 36px;
+    font-weight: bold;
+    color: #e74c3c;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* Input field and button */
+.input-field {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 2px solid #e74c3c;
+    border-radius: 25px;
+    font-size: 18px;
+    background-color: #f9f9f9;
+    color: #333;
+    min-height: 60px;
+    text-align: right;
+    position: relative;
+    overflow: hidden;
+}
+
+.input-field:focus {
+    border-color: #f1c6c6;
+    outline: none;
+    box-shadow: 0 0 12px rgba(244, 67, 54, 0.2);
+}
+
+/* Button styles */
+.btn {
+    padding: 20px 40px;
+    background-color: #e74c3c;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #f44336;
+    transform: scale(1.1);
+}
+
+/* Loading page (Pulse Loader) */
+.loading-page {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #e74c3c;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Result page */
+.result-page {
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    background-color: #f9f3f3;
+    position: relative;
+    padding-top: 20px;
+    overflow: hidden;
+}
+
+.love-message {
+    background: linear-gradient(145deg, #fff, #f1f1f1);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    font-size: 24px;
+    font-weight: 500;
+    color: #e74c3c;
+    width: 90%;
+    max-width: 700px;
+    min-height: 200px;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease-out forwards, slideUp 0.5s ease-in-out forwards;
+    direction: ltr;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Bottom section for the "ترجمة" button */
+.bottom-section {
+    position: absolute;
+    bottom: 50px; /* Adjusted space for mobile devices */
+    width: 100%;
+    text-align: center;
+    left: 0;
+}
+
+/* Next button */
+.next-btn {
+    padding: 20px 40px;
+    background-color: #27ae60;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Center the button horizontally */
+    z-index: 100;
+    display: none; /* Hidden initially */
+}
+
+.next-btn:hover {
+    background-color: #2ecc71;
+    transform: scale(1.1);
+}
+
+/* Final message */
+.final-message {
+    text-align: center;
+    padding: 50px;
+    background-color: #f1f1f1;
+    font-size: 30px;
+    color: #e74c3c;
+    display: none;
+}
+
+.message-popup {
+    padding: 40px;
+    background-color: #fff;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    font-size: 24px;
+    color: #e74c3c;
+    animation: popup 0.5s ease-in-out;
+}
+
+@keyframes popup {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Responsiveness */
+@media screen and (max-width: 600px) {
+    .search-container {
+        padding: 20px;
+    }
+
+    .input-field {
+        font-size: 16px;
+    }
+
+    .btn, .next-btn {
+        font-size: 18px;
+    }
+
+    .heading {
+        font-size: 28px;
+    }
+
+    .love-message {
+        width: 90%;
+        font-size: 18px;
+    }
+}
